@@ -1,0 +1,2 @@
+posts = [{'id':1, 'title':'测试标题1', 'author':'匿名用户1', 'publish':'2018-01-01','content':'这里是帖子的测试内容1……','replay':[{'publish':'2018-01-06', 'content':'这里是回复内容1……'},{'publish':'2018-01-05', 'content':'这里是回复内容2……'}]},
+{'id':2, 'title':'测试标题2', 'author':'匿名用户3', 'publish':'2018-02-11','content':'这里是帖子的测试内容2……','replay':[{'publish':'2018-02-15', 'content':'这里是回复内容3……'},{'publish':'2018-01-12', 'content':'这里是回复内容4……'}]},]
