@@ -1,11 +1,9 @@
-def listcalc(list1:list):
-    str1 = list1[1]
-    if str1 == '+': return int(list1[0])+int(list1[2])
-    if str1 == '-': return int(list1[0])-int(list1[2])
-    if str1 == '*': return int(list1[0])*int(list1[2])
-    if str1 == '/': return int(list1[0])/int(list1[2])
-
 numInput = input('请输入算式:')
-numList = list(numInput)
-if(len(numList)-1):
-    print("计算结果是:",listcalc(numList))
+strplus = numInput.split('+')
+strmin = numInput.split('-')
+strmult = numInput.split('*')
+strdiv = numInput.split('/')
+if len(strplus)-1: print("计算结果是:",int(strplus[0])+int(strplus[1]))
+if len(strmin)-1: print("计算结果是:",int(strmin[0])-int(strmin[1]))
+if len(strmult)-1: print("计算结果是:",int(strmult[0])*int(strmult[1]))
+if len(strdiv)-1: print("计算结果是:",int(strdiv[0])/int(strdiv[1]))
