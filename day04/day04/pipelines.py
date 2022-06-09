@@ -9,7 +9,7 @@ import json
 
 class DoubanPipeline:
     def process_item(self, item, spider):
-        jsonStr = json.dumps(dict(item),ensure_ascii=False)
-        with open("films.txt","w",encoding="utf_8") as f:
+        jsonStr = json.dumps((item['films_name']),ensure_ascii=False).strip("[").replace("]","\n").replace(",","\n")
+        with open("films.txt","a",encoding="utf_8") as f:
             f.write(jsonStr)
         return item

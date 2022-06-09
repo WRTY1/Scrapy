@@ -1,4 +1,4 @@
-
+import time
 import scrapy
 
 from day04.items import DoubanItem
@@ -12,6 +12,7 @@ class DoubanSpider(scrapy.Spider):
     def start_requests(self):
         for i in range(0,250,25):
             url=self.url.format(i)
+            time.sleep(1)
             yield scrapy.Request(
                 url=url,
                 callback=self.parse
@@ -20,6 +21,6 @@ class DoubanSpider(scrapy.Spider):
     def parse(self, response):
         films1_name = response.xpath('//div[@class="info"]/div/a/span[1]/text()').extract()
         item = DoubanItem()
-        item['file_name'] = films1_name
-        print("已写入")
-        pass
+        item['films_name'] = films1_name
+        print(films1_name)
+        return item
