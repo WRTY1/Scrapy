@@ -6,7 +6,7 @@
 import scrapy
 
 
-class Day04Item(scrapy.Item):
+class DoubanItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    films_name = scrapy.Field()
