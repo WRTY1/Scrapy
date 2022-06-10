@@ -11,3 +11,5 @@ day04/day04/__pycache__/items.cpython-38.pyc
 day04/day04/__pycache__/settings.cpython-38.pyc
 day04/day04/spiders/__pycache__/manage.cpython-38.pyc
 day04/day04/__pycache__/pipelines.cpython-38.pyc
+day04/films.csv
+day04/films.json
