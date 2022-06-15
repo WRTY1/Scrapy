@@ -1,4 +1,4 @@
-import time
+
 import scrapy
 
 from day04.items import DoubanItem
