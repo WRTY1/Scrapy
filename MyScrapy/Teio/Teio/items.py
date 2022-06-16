@@ -4,8 +4,6 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-
-
 class TeioItem(scrapy.Item):
     # define the fields for your item here like:
     urlList = scrapy.Field()

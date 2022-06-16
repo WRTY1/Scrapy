@@ -1,8 +1,3 @@
-
-from gc import callbacks
-from operator import itemgetter
-from pkgutil import extend_path
-from pkg_resources import yield_lines
 import scrapy
 
 from Teio.items import TeioItem
@@ -24,11 +19,14 @@ class TeiospiderSpider(scrapy.Spider):
             item["urlList"].append(response.xpath("//div[@class = 'prev-post pull-full']/a/img/@src").extract())
         else: 
             extenUrl = response.xpath("//div[@class = 'prev-post pull-left']/a/@href").extract()
-            item["urlList"].append(response.xpath("//div[@class = 'prev-post pull-left']/a/img/@src").extract())
+            urlstr = response.xpath("//div[@class = 'prev-post pull-left']/a/img/@src").extract()
+            urlstr = ''.join(urlstr)
+            if not urlstr.find("http"):
+                item["urlList"].append(urlstr)
         print(self.no)
         self.no+=1
-        if(not self.no >= 10):
-        #if(len(extenUrl)):
+        #if(not self.no >= 10):
+        if(len(extenUrl)):
             url = (self.rootUrl + extenUrl[0]).replace("\t","")
             print(url)
             print(item)
@@ -37,26 +35,4 @@ class TeiospiderSpider(scrapy.Spider):
             print("finished:",item)
             yield item
 
-    '''
-    def parse(self, response):
-        item = TeioItem()
-        #item["number"] = response.xpath("//div[@class = 'prev-post pull-left']/a/img/@src").extract()
-        extenUrl = response.xpath("//div[@class = 'prev-post pull-full']/a/@href").extract()
-        print(self.no)
-        self.no+=1
-        if(self.no >= 5):return item
-        if(len(extenUrl)):
-            url = (self.rootUrl + extenUrl[0]).replace("\t","")
-            print(url)
-            yield scrapy.Request(url=url,callback=self.parse,meta={'item':item})
-        else:
-            extenUrl = response.xpath("//div[@class = 'prev-post pull-left']/a/@href").extract()
-        if(len(extenUrl)):
-            url = (self.rootUrl + extenUrl[0]).replace("\t","")
-            print(url)
-            yield scrapy.Request(url=url,callback=self.parse,meta={'item':item})
-
-
-        #else:
-            #return item
-            '''
+  
